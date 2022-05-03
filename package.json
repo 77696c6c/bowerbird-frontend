@@ -1,0 +1,85 @@
+{
+  "name": "bowerbird-frontend",
+  "version": "1.0.0",
+  "homepage": "https://github.com/77696c6c/bowerbird-frontend",
+  "scripts": {
+    "dev": "next --port 8080",
+    "build": "next build",
+    "start": "next start",
+    "build-stats": "ANALYZE=true npm run build",
+    "export": "next export -o dist",
+    "build-prod": "run-s clean build export",
+    "predeploy": "run-s build-prod",
+    "deploy": "gh-pages -d dist",
+    "clean": "rimraf .next dist",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx ."
+  },
+  "dependencies": {
+    "@cityofzion/neon-core": "^5.0.0-next.16",
+    "@cityofzion/neon-js": "^5.0.0-next.16",
+    "@cityofzion/wallet-connect-sdk-core": "^1.6.1",
+    "@neongd/neo-dapi": "^1.0.1",
+    "@neongd/neo-provider": "^1.0.1",
+    "@walletconnect/client": "2.0.0-beta.20",
+    "@walletconnect/jsonrpc-utils": "^1.0.0",
+    "@walletconnect/qrcode-modal": "2.0.0-alpha.20",
+    "@walletconnect/types": "2.0.0-beta.20",
+    "@walletconnect/utils": "2.0.0-beta.20",
+    "axios": "^0.24.0",
+    "classnames": "^2.2.6",
+    "highcharts": "^9.3.2",
+    "highcharts-react-official": "^3.1.0",
+    "jquery": "^3.6.0",
+    "js-sha256": "^0.9.0",
+    "neo3-dapi": "^1.0.1",
+    "next": "^12.1.5",
+    "next-seo": "^4.23.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "styled-jsx": "^5.0.2",
+    "styled-jsx-plugin-postcss": "^4.0.1",
+    "use-color-change": "^1.0.0"
+  },
+  "devDependencies": {
+    "@next/bundle-analyzer": "^10.1.2",
+    "@svgr/cli": "^5.5.0",
+    "@tailwindcss/jit": "^0.1.18",
+    "@types/classnames": "^2.2.11",
+    "@types/jquery": "^3.5.6",
+    "@types/node": "^14.14.37",
+    "@types/react": "^17.0.3",
+    "@typescript-eslint/eslint-plugin": "^4.20.0",
+    "autoprefixer": "^10.3.4",
+    "eslint": "^7.23.0",
+    "eslint-config-airbnb-typescript": "^12.3.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.23.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "gh-pages": "^3.2.0",
+    "husky": "^4.3.8",
+    "lint-staged": "^10.5.4",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.3.6",
+    "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
+    "tailwindcss": "^2.2.11",
+    "typescript": "^4.2.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix",
+      "eslint"
+    ],
+    "*.json": [
+      "prettier --write"
+    ]
+  },
+  "license": "ISC"
+}
